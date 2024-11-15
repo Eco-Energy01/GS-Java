@@ -1,7 +1,7 @@
-package br.com.fiap.ecopower.dao;
+package br.com.fiap.ecoenergy.dao;
 
-import br.com.fiap.ecopower.factory.ConnectionFactory;
-import br.com.fiap.ecopower.model.Investimento;
+import br.com.fiap.ecoenergy.factory.ConnectionFactory;
+import br.com.fiap.ecoenergy.model.Investimento;
 
 import java.sql.*;
 

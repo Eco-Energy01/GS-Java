@@ -1,6 +1,6 @@
-package br.com.fiap.ecopower.view;
+package br.com.fiap.ecoenergy.view;
 
-import br.com.fiap.ecopower.cors.CorsFilter;
+import br.com.fiap.ecoenergy.cors.CorsFilter;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -9,10 +9,10 @@ import java.net.URI;
 
 public class Main {
 
-    public static final String BASE_URI = "http://localhost:8080/ecopower/";
+    public static final String BASE_URI = "http://localhost:8080/ecoenergy/";
 
     public static HttpServer startServer() {
-        final ResourceConfig rc = new ResourceConfig().packages("br.com.fiap.ecopower.resource");
+        final ResourceConfig rc = new ResourceConfig().packages("br.com.fiap.ecoenergy.resource");
 
         rc.register(new CorsFilter());
 

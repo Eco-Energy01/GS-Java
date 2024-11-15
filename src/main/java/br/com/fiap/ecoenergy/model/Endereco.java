@@ -1,4 +1,4 @@
-package br.com.fiap.ecopower.model;
+package br.com.fiap.ecoenergy.model;
 
 public class Endereco {
 

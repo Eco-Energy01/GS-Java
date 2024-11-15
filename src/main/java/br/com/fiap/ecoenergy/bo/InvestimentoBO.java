@@ -1,6 +1,6 @@
-package br.com.fiap.ecopower.bo;
+package br.com.fiap.ecoenergy.bo;
 
-import br.com.fiap.ecopower.model.Investimento;
+import br.com.fiap.ecoenergy.model.Investimento;
 
 public class InvestimentoBO {
     public void validarInvestimento(Investimento investimento) {

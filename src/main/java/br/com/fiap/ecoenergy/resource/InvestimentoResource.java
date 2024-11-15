@@ -1,8 +1,8 @@
-package br.com.fiap.ecopower.resource;
+package br.com.fiap.ecoenergy.resource;
 
-import br.com.fiap.ecopower.bo.InvestimentoBO;
-import br.com.fiap.ecopower.dao.InvestimentoDAO;
-import br.com.fiap.ecopower.model.Investimento;
+import br.com.fiap.ecoenergy.bo.InvestimentoBO;
+import br.com.fiap.ecoenergy.dao.InvestimentoDAO;
+import br.com.fiap.ecoenergy.model.Investimento;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;

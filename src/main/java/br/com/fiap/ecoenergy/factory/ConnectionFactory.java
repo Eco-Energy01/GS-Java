@@ -1,4 +1,4 @@
-package br.com.fiap.ecopower.factory;
+package br.com.fiap.ecoenergy.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

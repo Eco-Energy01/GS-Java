@@ -1,4 +1,4 @@
-package br.com.fiap.ecopower.cors;
+package br.com.fiap.ecoenergy.cors;
 
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;

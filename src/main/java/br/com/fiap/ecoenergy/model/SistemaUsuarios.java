@@ -1,6 +1,6 @@
-package br.com.fiap.ecopower.model;
+package br.com.fiap.ecoenergy.model;
 
-import br.com.fiap.ecopower.dao.ClienteDAO;
+import br.com.fiap.ecoenergy.dao.ClienteDAO;
 
 import java.sql.SQLException;
 

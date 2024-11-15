@@ -1,9 +1,9 @@
-package br.com.fiap.ecopower.resource;
+package br.com.fiap.ecoenergy.resource;
 
-import br.com.fiap.ecopower.bo.ClienteBO;
-import br.com.fiap.ecopower.dao.ClienteDAO;
-import br.com.fiap.ecopower.exception.ClienteNaoEncontradoException;
-import br.com.fiap.ecopower.model.Cliente;
+import br.com.fiap.ecoenergy.bo.ClienteBO;
+import br.com.fiap.ecoenergy.dao.ClienteDAO;
+import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
+import br.com.fiap.ecoenergy.model.Cliente;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
@@ -26,6 +26,8 @@ public class ClienteResource {
     @POST
     public Response criarCliente(Cliente cliente, @Context UriInfo uriInfo) {
         try {
+
+            clienteBO.validarCliente(cliente);
 
             boolean usuarioCadastrado = clienteDAO.clienteExiste(cliente.getTelefone(), cliente.getCpf(), cliente.getEmail());
 

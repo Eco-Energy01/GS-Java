@@ -1,8 +1,8 @@
-package br.com.fiap.ecopower.dao;
+package br.com.fiap.ecoenergy.dao;
 
-import br.com.fiap.ecopower.exception.ClienteNaoEncontradoException;
-import br.com.fiap.ecopower.model.Cliente;
-import br.com.fiap.ecopower.factory.ConnectionFactory;
+import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
+import br.com.fiap.ecoenergy.model.Cliente;
+import br.com.fiap.ecoenergy.factory.ConnectionFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

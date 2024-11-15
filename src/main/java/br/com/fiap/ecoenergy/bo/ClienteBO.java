@@ -1,6 +1,6 @@
-package br.com.fiap.ecopower.bo;
+package br.com.fiap.ecoenergy.bo;
 
-import br.com.fiap.ecopower.model.Cliente;
+import br.com.fiap.ecoenergy.model.Cliente;
 import java.util.regex.Pattern;
 
 public class ClienteBO {

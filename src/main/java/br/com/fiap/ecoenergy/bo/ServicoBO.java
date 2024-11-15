@@ -1,6 +1,6 @@
-package br.com.fiap.ecopower.bo;
+package br.com.fiap.ecoenergy.bo;
 
-import br.com.fiap.ecopower.model.Servico;
+import br.com.fiap.ecoenergy.model.Servico;
 
 public class ServicoBO {
     public void validarServico(Servico servico) {
