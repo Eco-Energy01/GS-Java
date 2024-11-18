@@ -2,12 +2,12 @@ package br.com.fiap.ecoenergy.resource;
 
 import br.com.fiap.ecoenergy.bo.ServicoBO;
 import br.com.fiap.ecoenergy.dao.ServicoDAO;
+import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
 import br.com.fiap.ecoenergy.model.Servico;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
+
+import java.util.List;
 
 @Path("/servico")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -29,6 +29,63 @@ public class ServicoResource {
         } catch (Exception e) {
             e.printStackTrace();
             return Response.serverError().entity("Erro ao salvar serviço: " + e.getMessage()).build();
+        }
+    }
+
+    // GET - Serviço específico
+    @GET
+    @Path("/{id}")
+    public Response getServico(@PathParam("id") String id) {
+        try {
+            Servico servico = servicoDAO.pesquisarPorId(id);
+            return Response.ok(servico).build();
+        } catch (ClienteNaoEncontradoException e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+        }
+    }
+
+
+    // GET - Listar serviços
+    @GET
+    public Response getTodosServicos() {
+        List<Servico> servicos = servicoDAO.listar();
+        System.out.println("Lista de Serviços:\n" + servicos.toString());
+        return Response.ok(servicos).build();
+
+    }
+
+    // PUT - Atualizar serviço
+    @PUT
+    @Path("/{id}")
+    public Response atualizarServico(@PathParam("id") String id, Servico servicoAtualizado, @Context UriInfo uriInfo) {
+        try {
+            Servico servico = servicoDAO.pesquisarPorId(id);
+
+            servico.setLocalServico(servicoAtualizado.getLocalServico());
+            servico.setTipo(servicoAtualizado.getTipo());
+            servico.setTipoLocal(servicoAtualizado.getTipoLocal());
+            servico.setDetalhesServico(servicoAtualizado.getDetalhesServico());
+            servico.setTelefone(servicoAtualizado.getTelefone());
+
+            servicoDAO.atualizar(servico);
+
+            UriBuilder builder = uriInfo.getAbsolutePathBuilder();
+            return Response.created(builder.path(servico.getId()).build()).entity(servico).build();
+        } catch (ClienteNaoEncontradoException e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+        }
+    }
+
+    // DELETE - Remover serviço
+    @DELETE
+    @Path("/{id}")
+    public Response removerServiço(@PathParam("id") String id) {
+        try {
+            Servico servico = servicoDAO.pesquisarPorId(id);
+            servicoDAO.remover(id);
+            return Response.noContent().build();
+        } catch (ClienteNaoEncontradoException e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
 }
