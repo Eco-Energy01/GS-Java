@@ -13,6 +13,9 @@ public class ServicoBO {
         if (servico.getTipoLocal() == null || servico.getTipoLocal().isEmpty()) {
             throw new IllegalArgumentException("Tipo do local do serviço é obrigatório.");
         }
+        if (servico.getDetalhesServico() == null || servico.getDetalhesServico().isEmpty()) {
+            throw new IllegalArgumentException("Detalhes do serviço é obrigatório.");
+        }
         if (servico.getTelefone() == null || servico.getTelefone().isEmpty()) {
             throw new IllegalArgumentException("Telefone de contato é obrigatório.");
         }
