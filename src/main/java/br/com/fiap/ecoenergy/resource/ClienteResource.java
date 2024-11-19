@@ -2,7 +2,7 @@ package br.com.fiap.ecoenergy.resource;
 
 import br.com.fiap.ecoenergy.bo.ClienteBO;
 import br.com.fiap.ecoenergy.dao.ClienteDAO;
-import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
+import br.com.fiap.ecoenergy.exception.IdNaoEncontradoException;
 import br.com.fiap.ecoenergy.model.Cliente;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.*;
@@ -68,7 +68,7 @@ public class ClienteResource {
         try {
             Cliente cliente = clienteDAO.pesquisarPorId(id);
             return Response.ok(cliente).build();
-        } catch (ClienteNaoEncontradoException e) {
+        } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
@@ -106,7 +106,7 @@ public class ClienteResource {
 
             UriBuilder builder = uriInfo.getAbsolutePathBuilder();
             return Response.created(builder.path(cliente.getId()).build()).entity(cliente).build();
-        } catch (ClienteNaoEncontradoException e) {
+        } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
@@ -119,7 +119,7 @@ public class ClienteResource {
             Cliente cliente = clienteDAO.pesquisarPorId(id);
             clienteDAO.remover(id);
             return Response.noContent().build();
-        } catch (ClienteNaoEncontradoException e) {
+        } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }

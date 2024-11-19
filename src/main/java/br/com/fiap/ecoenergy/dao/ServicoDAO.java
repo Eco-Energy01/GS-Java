@@ -1,6 +1,6 @@
 package br.com.fiap.ecoenergy.dao;
 
-import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
+import br.com.fiap.ecoenergy.exception.IdNaoEncontradoException;
 import br.com.fiap.ecoenergy.factory.ConnectionFactory;
 import br.com.fiap.ecoenergy.model.Servico;
 
@@ -92,7 +92,7 @@ public class ServicoDAO {
                         rs.getString("telefone")
                 );
             } else {
-                throw new ClienteNaoEncontradoException("Serviço não encontrado com ID: " + id);
+                throw new IdNaoEncontradoException("Serviço não encontrado com ID: " + id);
             }
 
         } catch (SQLException e) {

@@ -2,7 +2,7 @@ package br.com.fiap.ecoenergy.resource;
 
 import br.com.fiap.ecoenergy.bo.ServicoBO;
 import br.com.fiap.ecoenergy.dao.ServicoDAO;
-import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
+import br.com.fiap.ecoenergy.exception.IdNaoEncontradoException;
 import br.com.fiap.ecoenergy.model.Servico;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
@@ -39,7 +39,7 @@ public class ServicoResource {
         try {
             Servico servico = servicoDAO.pesquisarPorId(id);
             return Response.ok(servico).build();
-        } catch (ClienteNaoEncontradoException e) {
+        } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
@@ -71,7 +71,7 @@ public class ServicoResource {
 
             UriBuilder builder = uriInfo.getAbsolutePathBuilder();
             return Response.created(builder.path(servico.getId()).build()).entity(servico).build();
-        } catch (ClienteNaoEncontradoException e) {
+        } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
@@ -84,7 +84,7 @@ public class ServicoResource {
             Servico servico = servicoDAO.pesquisarPorId(id);
             servicoDAO.remover(id);
             return Response.noContent().build();
-        } catch (ClienteNaoEncontradoException e) {
+        } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }

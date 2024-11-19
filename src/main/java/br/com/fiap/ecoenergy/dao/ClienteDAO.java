@@ -1,6 +1,6 @@
 package br.com.fiap.ecoenergy.dao;
 
-import br.com.fiap.ecoenergy.exception.ClienteNaoEncontradoException;
+import br.com.fiap.ecoenergy.exception.IdNaoEncontradoException;
 import br.com.fiap.ecoenergy.model.Cliente;
 import br.com.fiap.ecoenergy.factory.ConnectionFactory;
 import java.sql.*;
@@ -91,7 +91,7 @@ public class ClienteDAO {
                         rs.getString("senha")
                 );
             } else {
-                throw new ClienteNaoEncontradoException("Cliente não encontrado com ID: " + id);
+                throw new IdNaoEncontradoException("Cliente não encontrado com ID: " + id);
             }
 
         } catch (SQLException e) {
