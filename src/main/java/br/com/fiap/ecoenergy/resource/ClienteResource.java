@@ -63,10 +63,10 @@ public class ClienteResource {
 
     // GET - Cliente específico
     @GET
-    @Path("/{id}")
-    public Response getCliente(@PathParam("id") String id) {
+    @Path("/{cpf}")
+    public Response getCliente(@PathParam("cpf") String cpf) {
         try {
-            Cliente cliente = clienteDAO.pesquisarPorId(id);
+            Cliente cliente = clienteDAO.pesquisarPorCpf(cpf);
             return Response.ok(cliente).build();
         } catch (IdNaoEncontradoException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
@@ -85,10 +85,10 @@ public class ClienteResource {
 
     // PUT - Atualizar cliente
     @PUT
-    @Path("/{id}")
-    public Response atualizarCliente(@PathParam("id") String id, Cliente clienteAtualizado, @Context UriInfo uriInfo) {
+    @Path("/{cpf}")
+    public Response atualizarCliente(@PathParam("cpf") String cpf, Cliente clienteAtualizado, @Context UriInfo uriInfo) {
         try {
-            Cliente cliente = clienteDAO.pesquisarPorId(id);
+            Cliente cliente = clienteDAO.pesquisarPorCpf(cpf);
 
             cliente.setNome(clienteAtualizado.getNome());
             cliente.setTelefone(clienteAtualizado.getTelefone());
@@ -116,7 +116,7 @@ public class ClienteResource {
     @Path("/{id}")
     public Response removerCliente(@PathParam("id") String id) {
         try {
-            Cliente cliente = clienteDAO.pesquisarPorId(id);
+            Cliente cliente = clienteDAO.pesquisarPorCpf(id);
             clienteDAO.remover(id);
             return Response.noContent().build();
         } catch (IdNaoEncontradoException e) {

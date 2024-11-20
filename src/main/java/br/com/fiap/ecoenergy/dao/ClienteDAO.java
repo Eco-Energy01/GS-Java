@@ -71,14 +71,14 @@ public class ClienteDAO {
     }
 
     // Método de pesquisar por ID
-    public Cliente pesquisarPorId(String id) {
+    public Cliente pesquisarPorCpf(String cpf) {
         Cliente cliente = null;
-        String sql = "SELECT * FROM T_GS_CLIENTE WHERE id_cliente = ?";
+        String sql = "SELECT * FROM T_GS_CLIENTE WHERE cpf = ?";
 
         try (Connection conexao = ConnectionFactory.getConnection();
              PreparedStatement stmt = conexao.prepareStatement(sql)) {
 
-            stmt.setString(1, id);
+            stmt.setString(1, cpf);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
@@ -91,7 +91,7 @@ public class ClienteDAO {
                         rs.getString("senha")
                 );
             } else {
-                throw new IdNaoEncontradoException("Cliente não encontrado com ID: " + id);
+                throw new IdNaoEncontradoException("Cliente não encontrado com CPF: " + cpf);
             }
 
         } catch (SQLException e) {
