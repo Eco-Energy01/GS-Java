@@ -44,7 +44,6 @@ public class InvestimentoResource {
         }
     }
 
-
     // GET - Listar investimentos
     @GET
     public Response getTodosInvestimentos() {
