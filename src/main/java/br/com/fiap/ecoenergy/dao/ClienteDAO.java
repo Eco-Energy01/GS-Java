@@ -102,6 +102,38 @@ public class ClienteDAO {
         return cliente;
     }
 
+    // Método de pesquisar por ID
+    public Cliente pesquisarPorId(String id) {
+        Cliente cliente = null;
+        String sql = "SELECT * FROM T_GS_CLIENTE WHERE id_cliente = ?";
+
+        try (Connection conexao = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                cliente = new Cliente(
+                        rs.getString("id_cliente"),
+                        rs.getString("nome"),
+                        rs.getString("telefone"),
+                        rs.getString("cpf"),
+                        rs.getString("email"),
+                        rs.getString("senha")
+                );
+            } else {
+                throw new IdNaoEncontradoException("Cliente não encontrado com id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao pesquisar cliente", e);
+        }
+
+        return cliente;
+    }
+
     // Método de atualizar cliente
     public void atualizar(Cliente cliente) {
         String sql = "UPDATE T_GS_CLIENTE SET nome = ?, telefone = ?, cpf = ?, email = ?, senha = ? WHERE id_cliente = ?";

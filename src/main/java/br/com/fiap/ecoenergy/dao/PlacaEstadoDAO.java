@@ -1,7 +1,6 @@
 package br.com.fiap.ecoenergy.dao;
 
 import br.com.fiap.ecoenergy.factory.ConnectionFactory;
-import br.com.fiap.ecoenergy.model.Cliente;
 import br.com.fiap.ecoenergy.model.PlacaEstado;
 
 import java.sql.Connection;
