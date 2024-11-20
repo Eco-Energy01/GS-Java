@@ -96,11 +96,11 @@ public class ClienteResource {
             cliente.setEmail(clienteAtualizado.getEmail());
             cliente.setSenha(clienteAtualizado.getSenha());
 
-            boolean usuarioCadastrado = clienteDAO.clienteExiste(cliente.getTelefone(), cliente.getCpf(), cliente.getEmail());
-
-            if (usuarioCadastrado) {
-                return Response.status(Response.Status.CONFLICT).entity("Informações já existentes.").build();
-            }
+//            boolean usuarioCadastrado = clienteDAO.clienteExiste(cliente.getTelefone(), cliente.getCpf(), cliente.getEmail());
+//
+//            if (usuarioCadastrado) {
+//                return Response.status(Response.Status.CONFLICT).entity("Informações já existentes.").build();
+//            }
 
             clienteDAO.atualizar(cliente);
 
