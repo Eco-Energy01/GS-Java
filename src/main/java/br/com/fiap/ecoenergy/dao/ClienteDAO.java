@@ -124,7 +124,7 @@ public class ClienteDAO {
     }
 
     // Método de remover cliente
-    public void remover(String id) {
+    public Cliente remover(String id) {
         String sql = "DELETE FROM T_GS_CLIENTE WHERE id_cliente = ?";
         try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -134,6 +134,7 @@ public class ClienteDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     // Método de verificar se o cliente já existe

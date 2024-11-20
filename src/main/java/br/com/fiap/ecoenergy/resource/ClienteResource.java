@@ -116,7 +116,7 @@ public class ClienteResource {
     @Path("/{id}")
     public Response removerCliente(@PathParam("id") String id) {
         try {
-            Cliente cliente = clienteDAO.pesquisarPorCpf(id);
+            Cliente cliente = clienteDAO.remover(id);
             clienteDAO.remover(id);
             return Response.noContent().build();
         } catch (IdNaoEncontradoException e) {
