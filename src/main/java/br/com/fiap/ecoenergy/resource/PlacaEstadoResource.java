@@ -1,6 +1,7 @@
 package br.com.fiap.ecoenergy.resource;
 
 import br.com.fiap.ecoenergy.dao.PlacaEstadoDAO;
+import br.com.fiap.ecoenergy.model.Cliente;
 import br.com.fiap.ecoenergy.model.PlacaEstado;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -15,16 +16,16 @@ public class PlacaEstadoResource {
 
     PlacaEstadoDAO placaEstadoDAO = new PlacaEstadoDAO();
 
-    // GET - Calculo Estado
+    // GET - Login Cliente
     @GET
     @Path("/calculo")
-    public Response CalculoPlaca(@QueryParam("nome_estado") String nomeEstado) {
+    public Response loginCliente(@QueryParam("nome_estado") String nomeEstado) {
         try {
             PlacaEstado placaEstado = placaEstadoDAO.buscarPorEstado(nomeEstado);
-            return Response.ok(nomeEstado).build();
+            return Response.ok(placaEstado).build();
         } catch (SQLException e) {
             String errorMessage = e.getMessage();
-            return Response.status(Response.Status.UNAUTHORIZED).entity("Estado inválidas.").build();
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Estado inválido.").build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Erro no servidor.").build();
         }

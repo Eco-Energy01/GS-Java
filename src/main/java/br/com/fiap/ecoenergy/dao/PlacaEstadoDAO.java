@@ -1,6 +1,7 @@
 package br.com.fiap.ecoenergy.dao;
 
 import br.com.fiap.ecoenergy.factory.ConnectionFactory;
+import br.com.fiap.ecoenergy.model.Cliente;
 import br.com.fiap.ecoenergy.model.PlacaEstado;
 
 import java.sql.Connection;
@@ -18,6 +19,15 @@ public class PlacaEstadoDAO {
 
             stmt.setString(1, nomeEstado);
             ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                placaEstado = new PlacaEstado(
+                        rs.getString("NOME_ESTADO"),
+                        rs.getInt("QUANTIDADE_PLACA")
+                );
+            } else {
+                throw new SQLException("Email não encontrado ou senha incorreta.");
+            }
 
         } catch (SQLException e) {
             System.out.println("Erro ao buscar estado: " + e.getMessage());
