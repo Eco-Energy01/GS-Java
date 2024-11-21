@@ -19,13 +19,7 @@ public class Investimento {
         this.telefone = telefone;
         this.valorInvestimento = valorInvestimento;
     }
-    public Investimento(String areaInteresse, String empresa, String setor, String telefone, double valorInvestimento) {
-        this.areaInteresse = areaInteresse;
-        this.empresa = empresa;
-        this.setor = setor;
-        this.telefone = telefone;
-        this.valorInvestimento = valorInvestimento;
-    }
+
     public Investimento() {}
 
     // Getters e Setters

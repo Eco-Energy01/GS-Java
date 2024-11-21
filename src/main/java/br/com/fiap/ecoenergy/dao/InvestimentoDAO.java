@@ -57,12 +57,12 @@ public class InvestimentoDAO {
 
             while (rs.next()) {
                 Investimento investimento = new Investimento();
-                investimento.setId(rs.getString("id_investimento"));
-                investimento.setAreaInteresse(rs.getString("interesse"));
-                investimento.setEmpresa(rs.getString("empresa"));
-                investimento.setSetor(rs.getString("setor"));
-                investimento.setTelefone(rs.getString("telefone"));
-                investimento.setValorInvestimento(rs.getDouble("investimento"));
+                investimento.setId(rs.getString("ID_INVESTIMENTO"));
+                investimento.setAreaInteresse(rs.getString("AREA_DE_INTERESSE"));
+                investimento.setEmpresa(rs.getString("EMPRESA"));
+                investimento.setSetor(rs.getString("SETOR"));
+                investimento.setTelefone(rs.getString("TELEFONE"));
+                investimento.setValorInvestimento(rs.getDouble("VALOR_INVESTIMENTO"));
                 investimentos.add(investimento);
             }
         } catch (SQLException e) {
@@ -84,12 +84,12 @@ public class InvestimentoDAO {
 
             if (rs.next()) {
                 investimento = new Investimento(
-                        rs.getString("id_investimento"),
-                        rs.getString("interesse"),
-                        rs.getString("empresa"),
-                        rs.getString("setor"),
-                        rs.getString("telefone"),
-                        rs.getDouble("investimento")
+                        rs.getString("ID_INVESTIMENTO"),
+                        rs.getString("AREA_DE_INTERESSE"),
+                        rs.getString("EMPRESA"),
+                        rs.getString("SETOR"),
+                        rs.getString("TELEFONE"),
+                        rs.getDouble("VALOR_INVESTIMENTO")
                 );
             } else {
                 throw new IdNaoEncontradoException("Investimento não encontrado com ID: " + id);

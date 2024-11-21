@@ -10,9 +10,9 @@ public class ServicoBO {
         if (servico.getLocal() == null || servico.getLocal().isEmpty()) {
             throw new IllegalArgumentException("Local é obrigatório.");
         }
-//        if (servico.getQuantidadePlaca() == null || servico.getQuantidadePlaca() <= 0) {
-//            throw new IllegalArgumentException("Quantidade de placa é obrigatória e deve ser maior que zero.");
-//        }
+        if (servico.getQuantidadePlaca() <= 0) {
+           throw new IllegalArgumentException("Quantidade de placa é obrigatória e deve ser maior que zero.");
+        }
         if (servico.getTipoServico() == null || servico.getTipoServico().isEmpty()) {
             throw new IllegalArgumentException("Tipo do serviço é obrigatório.");
         }
