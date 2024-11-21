@@ -4,26 +4,26 @@ public class Servico {
 
     // Atributos
     private String id;
-    private String localServico;
-    private String tipo;
-    private String tipoLocal;
-    private String detalhesServico;
+    private String endereco;
+    private String local;
+    private int quantidadePlaca;
+    private String tipoServico;
     private String telefone;
 
     // Construtores
-    public Servico(String id, String localServico, String tipo, String tipoLocal, String detalhesServico, String telefone) {
+    public Servico(String id, String endereco, String local, int quantidadePlaca, String tipoServico, String telefone) {
         this.id = id;
-        this.localServico = localServico;
-        this.tipo = tipo;
-        this.tipoLocal = tipoLocal;
-        this.detalhesServico = detalhesServico;
+        this.endereco = endereco;
+        this.local = local;
+        this.quantidadePlaca = quantidadePlaca;
+        this.tipoServico = tipoServico;
         this.telefone = telefone;
     }
-    public Servico(String localServico, String tipo, String tipoLocal, String detalhesServico, String telefone) {
-        this.localServico = localServico;
-        this.tipo = tipo;
-        this.tipoLocal = tipoLocal;
-        this.detalhesServico = detalhesServico;
+    public Servico(String endereco, String local, int quantidadePlaca, String tipoServico, String telefone) {
+        this.endereco = endereco;
+        this.local = local;
+        this.quantidadePlaca = quantidadePlaca;
+        this.tipoServico = tipoServico;
         this.telefone = telefone;
     }
     public Servico() {}
@@ -37,36 +37,36 @@ public class Servico {
         this.id = id;
     }
 
-    public String getLocalServico() {
-        return localServico;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setLocalServico(String localServico) {
-        this.localServico = localServico;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getLocal() {
+        return local;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
-    public String getTipoLocal() {
-        return tipoLocal;
+    public int getQuantidadePlaca() {
+        return quantidadePlaca;
     }
 
-    public void setTipoLocal(String tipoLocal) {
-        this.tipoLocal = tipoLocal;
+    public void setQuantidadePlaca(int quantidadePlaca) {
+        this.quantidadePlaca = quantidadePlaca;
     }
 
-    public String getDetalhesServico() {
-        return detalhesServico;
+    public String getTipoServico() {
+        return tipoServico;
     }
 
-    public void setDetalhesServico(String detalhesServico) {
-        this.detalhesServico = detalhesServico;
+    public void setTipoServico(String tipoServico) {
+        this.tipoServico = tipoServico;
     }
 
     public String getTelefone() {
@@ -79,12 +79,12 @@ public class Servico {
 
     @Override
     public String toString() {
-        return  "ID                - " + id + "\n" +
-                "LOCAL             - " + localServico + "\n" +
-                "TIPO SERVIÇO      - " + tipo + "\n" +
-                "TIPO LOCAL        - " + tipoLocal + "\n" +
-                "DETALHES          - " + detalhesServico + "\n" +
-                "TELEFONE          - " + telefone + "\n";
+        return  "ID                     - " + id + "\n" +
+                "ENDEREÇO               - " + endereco + "\n" +
+                "LOCAL                  - " + local + "\n" +
+                "QUANTIDADE PLACA       - " + quantidadePlaca + "\n" +
+                "TIPO SERVIÇO           - " + tipoServico + "\n" +
+                "TELEFONE               - " + telefone + "\n";
     }
 
 }

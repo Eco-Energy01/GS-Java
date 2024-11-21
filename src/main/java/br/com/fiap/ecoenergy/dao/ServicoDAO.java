@@ -17,13 +17,13 @@ public class ServicoDAO {
 
         try {
             conexao = ConnectionFactory.getConnection();
-            String sql = "INSERT INTO T_GS_SERVICO (LOCAL_SERVICO, TIPO, TIPO_LOCAL, DETALHES_SERVICO, TELEFONE) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO T_GS_SERVICO (ENDERECO, LOCAL, QUANTIDADE_PLACA, TIPO_SERVICO, TELEFONE) VALUES (?, ?, ?, ?, ?)";
             stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            stmt.setString(1, servico.getLocalServico());
-            stmt.setString(2, servico.getTipo());
-            stmt.setString(3, servico.getTipoLocal());
-            stmt.setString(4, servico.getDetalhesServico());
+            stmt.setString(1, servico.getEndereco());
+            stmt.setString(2, servico.getLocal());
+            stmt.setInt(3, servico.getQuantidadePlaca());
+            stmt.setString(4, servico.getTipoServico());
             stmt.setString(5, servico.getTelefone());
             stmt.executeUpdate();
 
@@ -35,7 +35,7 @@ public class ServicoDAO {
             System.out.println("Serviço cadastrado com sucesso!");
 
         } catch (SQLException e) {
-            System.err.println("Erro ao salvar investimento");
+            System.err.println("Erro ao salvar serviço");
             e.printStackTrace();
         } finally {
             try {
@@ -58,10 +58,10 @@ public class ServicoDAO {
             while (rs.next()) {
                 Servico servico = new Servico();
                 servico.setId(rs.getString("id_servico"));
-                servico.setLocalServico(rs.getString("local_servico"));
-                servico.setTipo(rs.getString("tipo"));
-                servico.setTipoLocal(rs.getString("tipo_local"));
-                servico.setDetalhesServico(rs.getString("detalhes_servico"));
+                servico.setEndereco(rs.getString("endereco"));
+                servico.setLocal(rs.getString("local"));
+                servico.setQuantidadePlaca(rs.getInt("quantidade_placa"));
+                servico.setTipoServico(rs.getString("tipo_servico"));
                 servico.setTelefone(rs.getString("telefone"));
                 servicos.add(servico);
             }
@@ -85,10 +85,10 @@ public class ServicoDAO {
             if (rs.next()) {
                 servico = new Servico(
                         rs.getString("id_servico"),
-                        rs.getString("local_servico"),
-                        rs.getString("tipo"),
-                        rs.getString("tipo_local"),
-                        rs.getString("detalhes_servico"),
+                        rs.getString("endereco"),
+                        rs.getString("local"),
+                        rs.getInt("quantidade_placa"),
+                        rs.getString("tipo_servico"),
                         rs.getString("telefone")
                 );
             } else {
@@ -105,14 +105,14 @@ public class ServicoDAO {
 
     // Método de atualizar serviço
     public void atualizar(Servico servico) {
-        String sql = "UPDATE T_GS_SERVICO SET local_servico = ?, tipo = ?, tipo_local = ?, detalhes_servico = ?, telefone = ? WHERE id_servico = ?";
+        String sql = "UPDATE T_GS_SERVICO SET endereco = ?, local = ?, quantidade_placa = ?, tipo_servico = ?, telefone = ? WHERE id_servico = ?";
         try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-            stmt.setString(1, servico.getLocalServico());
-            stmt.setString(2, servico.getTipo());
-            stmt.setString(3, servico.getTipoLocal());
-            stmt.setString(4, servico.getDetalhesServico());
+            stmt.setString(1, servico.getEndereco());
+            stmt.setString(2, servico.getLocal());
+            stmt.setInt(3, servico.getQuantidadePlaca());
+            stmt.setString(4, servico.getTipoServico());
             stmt.setString(5, servico.getTelefone());
             stmt.setString(6, servico.getId());
 

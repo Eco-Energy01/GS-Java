@@ -17,7 +17,7 @@ public class InvestimentoDAO {
 
         try {
             conexao = ConnectionFactory.getConnection();
-            String sql = "INSERT INTO T_GS_INVESTIMENTO (INTERESSE, EMPRESA, SETOR, TELEFONE, INVESTIMENTO) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO T_GS_INVESTIMENTO (AREA_DE_INTERESSE, EMPRESA, SETOR, TELEFONE, VALOR_INVESTIMENTO) VALUES (?, ?, ?, ?, ?)";
             stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             stmt.setString(1, investimento.getAreaInteresse());

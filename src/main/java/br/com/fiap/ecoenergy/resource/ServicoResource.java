@@ -61,10 +61,10 @@ public class ServicoResource {
         try {
             Servico servico = servicoDAO.pesquisarPorId(id);
 
-            servico.setLocalServico(servicoAtualizado.getLocalServico());
-            servico.setTipo(servicoAtualizado.getTipo());
-            servico.setTipoLocal(servicoAtualizado.getTipoLocal());
-            servico.setDetalhesServico(servicoAtualizado.getDetalhesServico());
+            servico.setEndereco(servicoAtualizado.getEndereco());
+            servico.setLocal(servicoAtualizado.getLocal());
+            servico.setQuantidadePlaca(servicoAtualizado.getQuantidadePlaca());
+            servico.setTipoServico(servicoAtualizado.getTipoServico());
             servico.setTelefone(servicoAtualizado.getTelefone());
 
             servicoDAO.atualizar(servico);
