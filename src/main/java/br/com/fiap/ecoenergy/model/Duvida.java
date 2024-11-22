@@ -2,26 +2,28 @@ package br.com.fiap.ecoenergy.model;
 
 public class Duvida {
 
+    // Atributos
     private String id;
     private String assunto;
     private String mensagem;
     private Cliente cliente;
 
+    // Construtores
     public Duvida(String id, String assunto, String mensagem, Cliente cliente) {
         this.id = id;
         this.assunto = assunto;
         this.mensagem = mensagem;
         this.cliente = cliente;
     }
-
     public Duvida(String assunto, String mensagem, Cliente cliente) {
         this.assunto = assunto;
         this.mensagem = mensagem;
         this.cliente = cliente;
     }
-
     public Duvida() {}
 
+
+    // Getters e Setters
     public String getId() {
         return id;
     }
@@ -52,5 +54,14 @@ public class Duvida {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    @Override
+    public String toString() {
+        return  "ID       - " + id + "\n" +
+                "ASSUNTO     - " + assunto + "\n" +
+                "MENSAGEM - " + mensagem + "\n" +
+                "ID CLIENTE      - " + getCliente().getId() + "\n";
+
     }
 }

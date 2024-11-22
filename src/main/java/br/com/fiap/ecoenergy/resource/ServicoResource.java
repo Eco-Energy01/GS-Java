@@ -17,6 +17,7 @@ public class ServicoResource {
     ServicoBO servicoBO = new ServicoBO();
     ServicoDAO servicoDAO = new ServicoDAO();
 
+    // POST - Salvar servico
     @POST
     public Response salvarServico(Servico servico, @Context UriInfo uriInfo) {
         try {

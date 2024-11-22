@@ -105,7 +105,7 @@ public class InvestimentoDAO {
 
     // Método de atualizar investimento
     public void atualizar(Investimento investimento) {
-        String sql = "UPDATE T_GS_INVESTIMENTO SET interesse = ?, empresa = ?, setor = ?, telefone = ?, investimento = ? WHERE id_investimento = ?";
+        String sql = "UPDATE T_GS_INVESTIMENTO SET area_de_interesse = ?, empresa = ?, setor = ?, telefone = ?, valor_investimento = ? WHERE id_investimento = ?";
         try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement stmt = connection.prepareStatement(sql)) {
 

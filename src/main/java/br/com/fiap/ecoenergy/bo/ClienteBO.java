@@ -28,14 +28,13 @@ public class ClienteBO {
         }
     }
 
-    // Método para validar CPF (exemplo simplificado, você pode implementar uma lógica mais completa)
+    // Método para validar CPF
     public boolean validarCPF(String cpf) {
-        return cpf.matches("\\d{11}"); // Verifica se o CPF tem 11 dígitos
+        return cpf.matches("\\d{11}");
     }
 
     // Método para validar o formato de um email
     public boolean validarEmail(String email) {
-        // Expressão regular básica para verificar formato de email
         String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         return Pattern.matches(regex, email);
     }

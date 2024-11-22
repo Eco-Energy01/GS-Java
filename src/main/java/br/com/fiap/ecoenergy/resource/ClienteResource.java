@@ -95,12 +95,6 @@ public class ClienteResource {
             cliente.setEmail(clienteAtualizado.getEmail());
             cliente.setSenha(clienteAtualizado.getSenha());
 
-//            boolean usuarioCadastrado = clienteDAO.clienteExiste(cliente.getTelefone(), cliente.getCpf(), cliente.getEmail());
-//
-//            if (usuarioCadastrado) {
-//                return Response.status(Response.Status.CONFLICT).entity("Informações já existentes.").build();
-//            }
-
             clienteDAO.atualizar(cliente);
 
             UriBuilder builder = uriInfo.getAbsolutePathBuilder();
@@ -115,7 +109,7 @@ public class ClienteResource {
     @Path("/{id}")
     public Response removerCliente(@PathParam("id") String id) {
         try {
-            Cliente cliente = clienteDAO.remover(id);
+            Cliente cliente = clienteDAO.pesquisarPorId(id);
             clienteDAO.remover(id);
             return Response.noContent().build();
         } catch (IdNaoEncontradoException e) {

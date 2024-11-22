@@ -1,15 +1,19 @@
 package br.com.fiap.ecoenergy.model;
 
 public class PlacaEstado {
+
+    // Atributos
     private String nomeEstado;
     private int quantidadePlaca;
 
+    // Construtores
     public PlacaEstado(String nomeEstado, int quantidadePlaca) {
         this.nomeEstado = nomeEstado;
         this.quantidadePlaca = quantidadePlaca;
     }
     public PlacaEstado() {}
 
+    // Getters e Setters
     public String getNomeEstado() {
         return nomeEstado;
     }

@@ -10,10 +10,8 @@ public class ConnectionFactory {
     private static final String USER = "rm557334";
     private static final String PASSWORD = "010703";
 
-    // Método para obter uma conexão com o banco de dados
     public static Connection getConnection() throws SQLException {
         try {
-            // Registra o Driver
             Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("O Driver JDBC não foi encontrado!", e);
@@ -23,12 +21,10 @@ public class ConnectionFactory {
 
     public static void main(String[] args) {
         try {
-            // Obtém a conexão
             Connection conexao = getConnection();
 
             System.out.println("Conectado!");
 
-            // Fecha a conexão
             conexao.close();
 
         } catch (SQLException e) {

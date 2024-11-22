@@ -17,6 +17,7 @@ public class InvestimentoResource {
     private InvestimentoBO investimentoBO = new InvestimentoBO();
     private InvestimentoDAO investimentoDAO = new InvestimentoDAO();
 
+    // POST - Salvar investimento
     @POST
     public Response salvarInvestimento(Investimento investimento, @Context UriInfo uriInfo) {
         try {
